@@ -1,4 +1,4 @@
-# Hiver SDE Intern Take-Home — AI Customer Support Agent
+# Hiver
 
 ## 1. Overview
 
