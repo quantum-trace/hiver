@@ -43,21 +43,21 @@ AppleSupport was selected because it has a large number of customer-support inte
 ## 3. System Architecture
 
 ```text
-Customer message
-       |
-       v
-Intent detection
-       |
-       v
-Intent-aware historical retrieval
-       |
-       v
-Top historical support evidence
-       |
+          Customer message
+                 |
+                 v
+          Intent detection
+                 |
+                 v
+  Intent-aware historical retrieval
+                 |
+                 v
+   Top historical support evidence
+                 |
        +--------------------+
        |                    |
        v                    v
-Draft reply          Escalation policy
+Draft reply           Escalation policy
        |                    |
        +---------+----------+
                  |
