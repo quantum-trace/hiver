@@ -122,14 +122,13 @@ def generate_reply(message, intent, retrieved):
 
     clean_response = best["support_response"]
 
-    # Remove handles
+  
     clean_response = re.sub(
         r"@\w+",
         "",
         clean_response
     )
 
-    # Remove URLs
     clean_response = re.sub(
         r"https?://\S+",
         "",
