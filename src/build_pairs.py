@@ -5,13 +5,10 @@ OUTPUT_PATH = "data/apple_pairs.csv"
 
 df = pd.read_csv(DATA_PATH)
 
-# Customer tweets
 customers = df[df["inbound"] == True].copy()
 
-# AppleSupport replies
 replies = df[df["inbound"] == False].copy()
 
-# Match each AppleSupport reply to the customer tweet it answers
 pairs = customers.merge(
     replies[["tweet_id", "in_response_to_tweet_id", "text"]],
     left_on="tweet_id",
