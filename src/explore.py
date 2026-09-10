@@ -16,7 +16,6 @@ df = pd.read_csv(
     ],
 )
 
-# Find tweets directly involving AppleSupport
 apple = df[
     (df["author_id"] == "AppleSupport")
     | (df["text"].str.contains("@AppleSupport", case=False, na=False))
