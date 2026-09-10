@@ -27,15 +27,13 @@ def retrieve(message, top_k=3, intent=None):
 
     candidates = df
 
-    # If we know the intent, prefer historical
-    # examples from the same intent.
+    
     if intent is not None and "intent" in df.columns:
 
         filtered = df[
             df["intent"] == intent
         ]
 
-        # Only use the filter if enough examples exist.
         if len(filtered) >= top_k:
 
             candidates = filtered
