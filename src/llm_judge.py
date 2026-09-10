@@ -34,7 +34,6 @@ Do not explain anything.
 
     response = ask_llm(prompt)
 
-    # Find a standalone 0 or 1
     match = re.search(r"(?<!\d)[01](?!\d)", response)
 
     if match:
