@@ -5,7 +5,6 @@ GOLDEN_PATH = "evaluation/golden_set.csv"
 
 df = pd.read_csv(GOLDEN_PATH)
 
-# Always predict the most common intent
 majority_intent = df["intent"].value_counts().idxmax()
 
 predictions = [majority_intent] * len(df)
