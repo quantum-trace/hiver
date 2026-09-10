@@ -9,12 +9,10 @@ GOLDEN_PATH = "evaluation/golden_set.csv"
 TRAIN_PATH = "data/train_pairs.csv"
 
 
-# Load data
 train = pd.read_csv(TRAIN_PATH)
 golden = pd.read_csv(GOLDEN_PATH)
 
 
-# For now, create training labels using simple keyword rules.
 def assign_intent(text):
     text = str(text).lower()
 
@@ -71,12 +69,9 @@ def assign_intent(text):
 
     return "general_support"
 
-
-# Generate training labels
 train["intent"] = train["customer_text"].apply(assign_intent)
 
 
-# TF-IDF converts text into numerical features
 vectorizer = TfidfVectorizer(
     lowercase=True,
     ngram_range=(1, 2),
@@ -87,7 +82,6 @@ X_train = vectorizer.fit_transform(train["customer_text"])
 X_test = vectorizer.transform(golden["text"])
 
 
-# Train classifier
 model = LogisticRegression(
     max_iter=1000,
     class_weight="balanced"
@@ -95,12 +89,9 @@ model = LogisticRegression(
 
 model.fit(X_train, train["intent"])
 
-
-# Predict golden set
 predictions = model.predict(X_test)
 
 
-# Evaluate
 accuracy = accuracy_score(golden["intent"], predictions)
 macro_f1 = f1_score(
     golden["intent"],
