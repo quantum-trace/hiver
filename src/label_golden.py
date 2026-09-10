@@ -18,7 +18,6 @@ INTENTS = {
 
 df = pd.read_csv(INPUT_PATH)
 
-# Resume labeling if the file already exists
 try:
     existing = pd.read_csv(OUTPUT_PATH)
     labeled_ids = set(existing["tweet_id"])
