@@ -8,7 +8,6 @@ GOLDEN_PATH = "evaluation/golden_set.csv"
 OUTPUT_PATH = "evaluation/agent_results.csv"
 
 
-# Load golden set
 golden = pd.read_csv(GOLDEN_PATH)
 
 results = []
@@ -56,7 +55,6 @@ results_df.to_csv(
 )
 
 
-# Intent evaluation
 accuracy = accuracy_score(
     results_df["true_intent"],
     results_df["predicted_intent"]
